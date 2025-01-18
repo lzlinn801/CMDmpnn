@@ -25,7 +25,7 @@ sudo make install
 source /home/Your Linux Name/gmx2020.3/bin/GMXRC         ;Finally edit the environment and refresh
 
 ###Protein-ligand MD simulation###
-##Put all the .mdp files, protein.pdb, ligand.gro and ligand.itp files together and run terminal##
+##If you want to start from scratch, put all the .mdp files, protein.pdb, ligand.gro and ligand.itp files together and run terminal##
 gmx pdb2gmx -f PROTEIN.pdb -o processed.gro -p topol.top -ignh         ;select AMBER14SB and SPC
 ##Constructing protein-ligand complex topology files##
 gmx editconf -f processed.gro -o newbox.gro -c -d 1.0 -bt cubic
@@ -42,7 +42,7 @@ gmx grompp -f nvt.mdp -c em2.gro -r em2.gro -p topol.top -n index.ndx -o nvt.tpr
 gmx mdrun -v -deffnm nvt
 gmx grompp -f npt.mdp -c nvt.gro -r nvt.gro -t nvt.cpt -p topol.top -n index.ndx -o npt.tpr -maxwarn 1
 gmx mdrun -v -deffnm npt
-gmx grompp -f md.mdp -c npt.gro -r npt.gro -t npt.cpt -p topol.top -n index.ndx -o md_0_1.tpr -maxwarn 1 
+gmx grompp -f md.mdp -c npt.gro -r npt.gro -t npt.cpt -p topol.top -n index.ndx -o md_0_1.tpr -maxwarn 1         ;You can also use the M0-3.gro or WT-3.gro files we have already performed NPT equilibration on to perform MD simulations directly. 
 gmx mdrun -v -deffnm md_0_1         ;Run MD simulation
 
 ###Result analysis command statement###
