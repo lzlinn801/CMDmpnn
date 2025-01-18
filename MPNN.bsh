@@ -1,3 +1,4 @@
+#Run "bash MPNN.bsh" in the terminal#
 path_for_parsed_chains=$output_dir"/parsed_pdbs.jsonl"
 path_for_assigned_chains=$output_dir"/assigned_pdbs.jsonl"
 path_for_fixed_positions=$output_dir"/fixed_pdbs.jsonl"
